@@ -1,0 +1,52 @@
+{
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.black-formatter"
+  },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "editor.trimAutoWhitespace": true,
+  "files.associations": {
+    "*.resource": "robotframework",
+    "*.robot": "robotframework"
+  },
+  "python.terminal.activateEnvironment": true,
+  "robot.pythonpath": [
+    "${workspaceFolder}"
+  ],
+  "git.branchProtection": [
+    "main",
+    "master"
+  ],
+  "salesforcedx-vscode-core.push-or-deploy-on-save.enabled": false,
+  "search.exclude": {
+    "**/.sf": true,
+    "**/.sfdx": true,
+    "**/bower_components": true,
+    "**/node_modules": true,
+    "**/.github": true,
+    "**/.vscode": true,
+    "**/.cci": true
+  },
+  "files.exclude": {
+    "**/.sf": true,
+    "**/.sfdx": true,
+    "**/node_modules": true,
+    "**/.github": true,
+    "**/.vscode": true,
+    "**/.cci": true,
+    "**/._*": true,
+    "**/__pycache__": true,
+    "**/*.pyc": true,
+    "**/.gitignore": true,
+    "**/.eslintrc.json": true,
+    "**/.forceignore": true,
+    "**/.prettierignore": true,
+    "**/.prettierrc": true,
+    "**/jest.config.js": true,
+    "**/package.json": true,
+    "**/playwright.config.ts": true
+  },
+  "explorer.excludeGitIgnore": true,
+  "robot.language-server.python": "/usr/bin/python3"
+}

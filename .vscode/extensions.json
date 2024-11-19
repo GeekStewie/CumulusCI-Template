@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "ms-playwright.playwright",
+    "ms-python.pylint",
+    "redhat.vscode-xml",
+    "redhat.vscode-yaml",
+    "robocorp.robotframework-lsp",
+    "salesforce.salesforce-vscode-slds",
+    "salesforce.salesforcedx-vscode-expanded",
+    "salesforce.salesforcedx-vscode-visualforce",
+    "visualstudioexptteam.vscodeintellicode"
+  ]
+}

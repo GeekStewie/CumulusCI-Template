@@ -1,0 +1,119 @@
+project:
+    # Update Name, Package > Name and Git > Repo_URL accordingly
+
+    name: CumulusCI-Template
+    package:
+        name: CumulusCI-Template
+        api_version: "62.0"
+    git:
+        repo_url: https://github.com/geekstewie/CumulusCI-Template
+    source_format: sfdx
+
+    custom:
+        # Update these with owner information
+        owner:
+        owner_email:
+        documentation_url:
+
+    # Managed and Unmanaged Salesforce Packages can be defined here
+    dependencies:
+    # Example
+    # - version_id: 04t234234234
+
+tasks:
+    # Task Defaults - Typically leave these as is
+    robot:
+        options:
+            suites: robot/included/tests
+            options:
+                outputdir: robot/included/results
+
+    robot_testdoc:
+        options:
+            path: robot/included/tests
+            output: robot/included/doc/CumulusCI-Template_tests.html
+
+    run_tests:
+        options:
+            required_org_code_coverage_percent: 75
+
+    deploy:
+        options:
+            path: force-app
+
+    load_dataset:
+        options:
+            ignore_row_errors: true
+            drop_missing_schema: true
+            set_recently_viewed: true
+
+    # Example Task
+    run_robot_automation:
+        class_path: cumulusci.tasks.robotframework.Robot
+        options:
+            suites: robot/included/tests/create_contact.robot
+            test: Validate Contact
+            # Comment out the following lines if testing
+            vars: browser:headlesschrome
+            options:
+                report: None
+                log: None
+                output: None
+
+    # Custom Tasks - Add below
+
+flows:
+    # Custom Flows - Add below
+
+    # Tasks to do BEFORE the main deployment
+    prepare_environment:
+        steps:
+            1:
+                task: update_dependencies
+
+    # Tasks to do AFTER the main deployment
+    post_deployment:
+        steps:
+            1:
+                task: None
+
+    # Default Deploy Flow - Typically leave as is
+    deploy_solution:
+        steps:
+            1:
+                flow: prepare_environment
+            2:
+                task: deploy
+            3:
+                flow: post_deployment
+
+    # Flow Overrides - Typically Leave as is
+
+    deploy_unmanaged:
+        steps:
+            6:
+                task: None # Prevents uninstall_packaged_incremental from running
+
+    deploy_unmanaged_ee:
+        steps:
+            6:
+                task: None # Prevents uninstall_packaged_incremental from running
+
+orgs:
+    # Scratch Org Defaults
+    scratch:
+        dev:
+            config_file: orgs/dev.json
+            days: 30
+        qa:
+            config_file: orgs/dev.json
+            days: 30
+        feature:
+            config_file: orgs/feature.json
+            days: 14
+        beta:
+            config_file: orgs/beta.json
+            days: 7
+        release:
+            config_file: orgs/release.json
+            days: 7
