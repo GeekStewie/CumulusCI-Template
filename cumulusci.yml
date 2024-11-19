@@ -1,9 +1,12 @@
 project:
     # Update Name, Package > Name and Git > Repo_URL accordingly
+    # Name, Package > Name should be the same
 
     name: CumulusCI-Template
     package:
         name: CumulusCI-Template
+
+        # Ensure this api_version matches the version in sfdx-project.json
         api_version: "62.0"
     git:
         repo_url: https://github.com/geekstewie/CumulusCI-Template
@@ -19,6 +22,10 @@ project:
     dependencies:
     # Example
     # - version_id: 04t234234234
+
+sources:
+
+    # Add other CCI projects here as sources
 
 tasks:
     # Task Defaults - Typically leave these as is
@@ -95,13 +102,25 @@ flows:
     prepare_environment:
         steps:
             1:
+                # Deploy Packages referenced in Dependencies above
                 task: update_dependencies
+            2:
+                # Deploy Items in unpackaged/pre (if any)
+                task: deploy_pre
 
     # Tasks to do AFTER the main deployment
     post_deployment:
         steps:
             1:
+                # Deploy Items in unpackaged/post (if any)
+                task: deploy_post
+            2:
                 task: None
+                # Example deploying permission sets to the admin user (recommended you create one for the solution)
+                #task: assign_permission_sets
+                #options:
+                #    api_names:
+                #        - PermissionSet123
 
     # Default Deploy Flow - Typically leave as is
     deploy_solution:
@@ -112,7 +131,7 @@ flows:
                 task: deploy
             3:
                 flow: post_deployment
-            5:
+            4:
                 task: snapshot_changes
                 when: org_config.scratch
 
