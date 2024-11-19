@@ -134,15 +134,20 @@ orgs:
         dev:
             config_file: orgs/dev.json
             days: 30
+            namespaced: False
         qa:
             config_file: orgs/dev.json
             days: 30
+            namespaced: False
         feature:
             config_file: orgs/feature.json
             days: 14
+            namespaced: False
         beta:
             config_file: orgs/beta.json
             days: 7
+            namespaced: False
         release:
             config_file: orgs/release.json
             days: 7
+            namespaced: False
