@@ -24,7 +24,7 @@ To work on this project in a scratch org:
 
 ## CI/CD
 
-See this article for more information on how to set this up within your repo - [Set Up GitHub Actions](https://cumulusci.readthedocs.io/en/latest/github-actions.html)
+See this example repo for more information on how to set this up within your repo - [Set Up GitHub Actions](https://github.com/muselab-d2x/d2x/tree/main/.github/workflows)
 
 ## Thanks
 
