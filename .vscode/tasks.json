@@ -1,0 +1,195 @@
+{
+  // See https://go.microsoft.com/fwlink/?LinkId=733558
+  // for the documentation about the tasks.json format
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ORG: 🛠️ Create a scratch org",
+      "type": "shell",
+      "command": "cci org info ${input:OrgAlias}",
+      "group": "build",
+      "problemMatcher": [],
+      "presentation": {
+        "revealProblems": "onProblem",
+        "focus": true,
+        "echo": false,
+        "showReuseMessage": false,
+        "panel": "new"
+      }
+    },
+    {
+      "label": "ORG: 🛠️ Create Development and Test Orgs",
+      "type": "shell",
+      "command": "cci org info dev && cci org info qa",
+      "group": "build",
+      "problemMatcher": [],
+      "presentation": {
+        "revealProblems": "onProblem",
+        "focus": true,
+        "echo": false,
+        "showReuseMessage": false,
+        "panel": "new"
+      }
+    },
+    {
+      "label": "ORG: 🌐 Open Salesforce Org in browser",
+      "type": "shell",
+      "command": "cci org browser ${input:OrgAlias}",
+      "group": "build",
+      "problemMatcher": [],
+      "presentation": {
+        "revealProblems": "onProblem",
+        "focus": true,
+        "echo": false,
+        "showReuseMessage": false,
+        "panel": "new"
+      }
+    },
+    {
+      "label": "ORG: 🔗 Connect to Salesforce Production Org",
+      "type": "shell",
+      "command": "cci org connect --org ${input:OrgAlias}",
+      "group": "build",
+      "problemMatcher": [],
+      "presentation": {
+        "revealProblems": "onProblem",
+        "focus": true,
+        "echo": false,
+        "showReuseMessage": false,
+        "panel": "new"
+      }
+    },
+    {
+      "label": "ORG: 🔗 Connect to Salesforce Sandbox/Scratch Org",
+      "type": "shell",
+      "command": "cci org connect --org ${input:OrgAlias} --sandbox",
+      "group": "build",
+      "problemMatcher": [],
+      "presentation": {
+        "revealProblems": "onProblem",
+        "focus": true,
+        "echo": false,
+        "showReuseMessage": false,
+        "panel": "new"
+      }
+    },
+    {
+      "label": "ORG: 💫 Switch Default Org",
+      "type": "shell",
+      "command": "cci org default ${input:OrgAlias}",
+      "group": "build",
+      "problemMatcher": [],
+      "presentation": {
+        "revealProblems": "onProblem",
+        "focus": true,
+        "echo": false,
+        "showReuseMessage": false,
+        "panel": "new"
+      }
+    },
+    {
+      "label": "ORG: 🗑 Disconnect/Remove Salesforce Org",
+      "type": "shell",
+      "command": "cci org remove ${input:OrgAlias}",
+      "group": "build",
+      "problemMatcher": [],
+      "presentation": {
+        "revealProblems": "onProblem",
+        "focus": true,
+        "echo": false,
+        "showReuseMessage": false,
+        "panel": "new"
+      }
+    },
+    {
+      "label": "RETRIEVE: 💾 Retrieve Changes from Salesforce Org",
+      "type": "shell",
+      "command": "cci task run retrieve_changes --org ${input:OrgAlias}",
+      "group": "build",
+      "problemMatcher": [],
+      "presentation": {
+        "revealProblems": "onProblem",
+        "focus": true,
+        "echo": false,
+        "showReuseMessage": false,
+        "panel": "new"
+      }
+    },
+    {
+      "label": "DEPLOY: 📤 Deploy Solution to Salesforce Org",
+      "type": "shell",
+      "command": "cci flow run deploy_solution --org ${input:OrgAlias}",
+      "group": "build",
+      "problemMatcher": [],
+      "presentation": {
+        "revealProblems": "onProblem",
+        "focus": true,
+        "echo": false,
+        "showReuseMessage": false,
+        "panel": "new"
+      }
+    },
+    {
+      "label": "DEPLOY: 📤 Deploy specific directory to specified org",
+      "type": "shell",
+      "command": "cci task run deploy --path ${input:FolderString} --org '${input:OrgAlias}'",
+      "group": "build",
+      "problemMatcher": [],
+      "presentation": {
+        "revealProblems": "onProblem",
+        "focus": true,
+        "echo": false,
+        "showReuseMessage": false,
+        "panel": "new"
+      }
+    },
+    {
+      "label": "RETRIEVE: 📦 Retrieve unmanaged package from Salesforce Org",
+      "type": "shell",
+      "command": "cci task run retrieve_packaged --org '${input:OrgAlias}' --package '${input:PackageName}'",
+      "group": "build",
+      "problemMatcher": [],
+      "presentation": {
+        "revealProblems": "onProblem",
+        "focus": true,
+        "echo": false,
+        "showReuseMessage": false,
+        "panel": "new"
+      }
+    },
+    {
+      "label": "BUILD: ⏱️ Snapshot Changes from now",
+      "type": "shell",
+      "command": "cci task run snapshot_changes --org '${input:OrgAlias}'",
+      "group": "build",
+      "problemMatcher": [],
+      "presentation": {
+        "revealProblems": "onProblem",
+        "focus": true,
+        "echo": false,
+        "showReuseMessage": false,
+        "panel": "new"
+      }
+    },
+  ],
+  "inputs": [
+    {
+      "id": "OrgAlias",
+      "description": "Please provide the Salesforce org alias",
+      "default": "dev",
+      "type": "promptString"
+    },
+    {
+      "id": "PackageName",
+      "description": "Please provide the name of the package in the target salesforce org",
+      "default": "",
+      "type": "promptString"
+    },
+    {
+      "id": "FolderString",
+      "description": "Enter the relative path to the folder:",
+      "default": "force-app",
+      "type": "promptString"
+    },
+  ]
+}
