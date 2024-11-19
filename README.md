@@ -22,9 +22,11 @@ To work on this project in a scratch org:
 7. Repeat steps 5-6 until successful deployment
 8. Save changes back to Github
 
+Note: If you are using VSCode, then you can press Cmd + Shift + b while in VSCode to bring up the build tasks which run most of the commands needed above.
+
 ## CI/CD
 
-See this example repo for more information on how to set this up within your repo - [Set Up GitHub Actions](https://github.com/muselab-d2x/d2x/tree/main/.github/workflows)
+See this example repo for more information on how to set this up within your repo from our friends at MuseLab - [Set Up GitHub Actions](https://github.com/muselab-d2x/d2x/tree/main/.github/workflows)
 
 ## Thanks
 

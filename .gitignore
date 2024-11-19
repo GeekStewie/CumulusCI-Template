@@ -227,3 +227,27 @@ validationresult.json
 /playwright/.cache/
 *.pyc
 .idea/*
+
+# VSCODE
+.vscode/*
+!.vscode/tasks.json
+!.vscode/settings.json
+.vscode-test
+*.code-workspace
+
+# JETBRAINS
+.idea/
+cmake-build-*/
+*.iws
+out/
+.idea_modules/
+com_crashlytics_export_strings.xml
+crashlytics.properties
+crashlytics-build.properties
+fabric.properties
+
+# JUPYTERNOTEBOOKS
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+profile_default/
+ipython_config.py
