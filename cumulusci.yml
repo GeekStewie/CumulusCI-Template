@@ -18,14 +18,20 @@ project:
         owner_email:
         documentation_url:
 
-    # Managed and Unmanaged Salesforce Packages can be defined here
+    # Managed and Unmanaged Salesforce Packages can be defined here (Recommended to use the 18 character reference which will start with 04t)
+    # If you only have the 15 character version, go here: https://www.adminbooster.com/tool/15to18
+
     dependencies:
     # Example
     # - version_id: 04t234234234
 
 sources:
 
-    # Add other CCI projects here as sources
+    # Add other CCI projects here as sources. If the other project are based on this template, simple call the flow my_source_alias:deploy_solution in the flow steps below.
+
+    # Example
+    #my_source_alias:
+    #    github: https://github.com/geekstewie/CumulusCI-Template
 
 tasks:
     # Task Defaults - Typically leave these as is
