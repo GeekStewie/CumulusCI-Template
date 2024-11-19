@@ -47,6 +47,32 @@ tasks:
             drop_missing_schema: true
             set_recently_viewed: true
 
+    list_changes:
+        options:
+            exclude:
+                - FeatureParameter
+                - "AuraDefinition:"
+                - "SiteDotCom:"
+                - "ManagedTopics:"
+                - "LiveChatTranscript:"
+                - "ExperienceResource:"
+                - "AppMenu:"
+                - "Profile:"
+                - "FlowDefinition:"
+
+    retrieve_changes:
+        options:
+            exclude:
+                - FeatureParameter
+                - "AuraDefinition:"
+                - "SiteDotCom:"
+                - "ManagedTopics:"
+                - "LiveChatTranscript:"
+                - "ExperienceResource:"
+                - "AppMenu:"
+                - "Profile:"
+                - "FlowDefinition:"
+
     # Example Task
     run_robot_automation:
         class_path: cumulusci.tasks.robotframework.Robot

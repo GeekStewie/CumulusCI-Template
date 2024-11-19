@@ -9,13 +9,27 @@
       "enableChatter": true
     },
     "userManagementSettings": {
+      "enableEnhancedPermsetMgmt": true,
+      "enableEnhancedProfileMgmt": true,
       "enableNewProfileUI": true
+    },
+    "mobileSettings": {
+      "enableS1EncryptedStoragePref2": false
     },
     "securitySettings": {
       "enableAdminLoginAsAnyUser": true,
       "sessionSettings": {
         "forceRelogin": false
       }
+    },
+    "userEngagementSettings": {
+      "enableShowSalesforceUserAssist": false
+    },
+    "communitiesSettings": {
+      "enableNetworksEnabled": true
+    },
+    "experienceBundleSettings": {
+      "enableExperienceBundleMetadata": true
     },
     "languageSettings": {
       "enableTranslationWorkbench": true
