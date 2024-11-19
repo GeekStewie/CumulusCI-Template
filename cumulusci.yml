@@ -86,6 +86,9 @@ flows:
                 task: deploy
             3:
                 flow: post_deployment
+            5:
+                task: snapshot_changes
+                when: org_config.scratch
 
     # Flow Overrides - Typically Leave as is
 
